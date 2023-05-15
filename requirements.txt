@@ -1,0 +1,10 @@
+flask
+flask_restful
+sqlalchemy
+sqlalchemy_utils
+mysql-connector-python
+mysql.connector
+requests
+bs4
+html5lib
+pymysql
