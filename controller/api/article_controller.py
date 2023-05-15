@@ -1,6 +1,6 @@
 from flask import jsonify, abort
 from flask_restful import Resource
-from model.repository.article_repository import ArticleRepository
+from model.repositories.article_repository import ArticleRepository
 
 class ArticleController(Resource):
     def get(self, id=None):

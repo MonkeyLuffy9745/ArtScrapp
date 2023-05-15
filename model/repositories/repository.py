@@ -2,7 +2,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 
 class Repository():
-    def get_engine(host, username):
+    def get_engine():
         host = 'localhost'
         username = 'artscrapp'
         password = 'azerty'

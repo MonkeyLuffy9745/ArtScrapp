@@ -1,6 +1,6 @@
 from flask import jsonify, abort
 from flask_restful import Resource, reqparse
-from model.repository.website_repositoy import WebsiteRepository
+from model.repositories.website_repositoy import WebsiteRepository
 from model.models import Website
 
 class WebsiteController(Resource):
@@ -24,7 +24,7 @@ class WebsiteController(Resource):
                             help='link is required')
         args = parser.parse_args()
 
-        new_website = Website(link=args["link"], link=args["link"])
+        new_website = Website(libelle=args["libelle"], link=args["link"])
         WebsiteRepository.store(new_website)
         return jsonify(new_website)
     

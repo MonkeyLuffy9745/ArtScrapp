@@ -1,5 +1,5 @@
-from models import Website
-from repository import Repository
+from ..models import Website
+from .repository import Repository
 
 class WebsiteRepository(Repository):
     def get_all():

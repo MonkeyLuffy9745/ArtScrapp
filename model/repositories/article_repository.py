@@ -1,5 +1,5 @@
-from models import Article
-from repository import Repository
+from ..models import Article
+from .repository import Repository
 
 class ArticleRepository(Repository):
     def get_all():
