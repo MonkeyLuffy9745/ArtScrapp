@@ -11,6 +11,14 @@ class Website(Model):
     link = Column(String(255), nullable=False, unique=True)
     articles = relationship("Article", back_populates="website")
     
+    def __json__(self):
+        return {
+            'id': self.id,
+            'libelle': self.libelle,
+            'link': self.link,
+        }
+    
+    
 class Article(Model):
     __tablename__ = "articles"
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -20,3 +28,12 @@ class Article(Model):
     created_at = Column(String(25))
     website_id = Column(Integer, ForeignKey('websites.id'), nullable=False)
     website = relationship('Website', back_populates="articles")
+    
+    def __json__(self):
+        return {
+            'id': self.id,
+            'title':self.title,
+            'link': self.link,
+            'description':self.description,
+            'website_id':self.website_id
+        }

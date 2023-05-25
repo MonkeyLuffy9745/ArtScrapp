@@ -1,6 +1,6 @@
 from flask import jsonify, abort
 from flask_restful import Resource, reqparse
-from model.repositories.website_repositoy import WebsiteRepository
+from model.repositories.website_repository import WebsiteRepository
 from model.models import Website
 
 class WebsiteController(Resource):
@@ -40,9 +40,9 @@ class WebsiteController(Resource):
             abort(404, description="Website not found")
             
         if args["libelle"]:
-            website["libelle"] = args["libelle"]
+            website.libelle = args["libelle"]
         if args["link"]:
-            website["link"] = args["link"]
+            website.link = args["link"]
         return jsonify(website)
     
     def delete(self, id):
