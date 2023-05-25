@@ -16,19 +16,18 @@ class laraimmo(scrapy.Spider):
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
-
-
     def parse(self, response):
         print(f'\033[95mStart {self.website.libelle}\033[0m')
         
-        for quote in response.css("div.col-3"):
-            # print(quote.get())
-            title = quote.css("a::text").get()
+        for div in response.css("div.col-3"):
+            # print(div.get())
+            title = div.css("a::text").get()
             print("title: ", title)
-            link = quote.css("a::attr(href)").get()
+            link = div.css("a::attr(href)").get()
             print("link: ", link)
-            description = quote.css("p::text").get()
+            description = div.css("p::text").get()
             print("description: ", description)
+            
             if(ArticleRepository.get_by_link(link)):
                 print(f'\nWarning: article ignored(already exists): {title}({link})')
             else:

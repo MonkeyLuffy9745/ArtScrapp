@@ -1,1 +1,1 @@
-LOG_ENABLED = True
+LOG_ENABLED = False

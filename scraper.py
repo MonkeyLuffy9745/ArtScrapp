@@ -1,5 +1,3 @@
-import importlib
-import sys
 from model.repositories.website_repository import WebsiteRepository
 WebsiteRepository.connect()
 from scrapy.crawler import CrawlerProcess
