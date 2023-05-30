@@ -43,6 +43,7 @@ class WebsiteController(Resource):
             website.libelle = args["libelle"]
         if args["link"]:
             website.link = args["link"]
+        WebsiteRepository.update(website)
         return jsonify(website)
     
     def delete(self, id):

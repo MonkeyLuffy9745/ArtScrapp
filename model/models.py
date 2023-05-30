@@ -9,7 +9,7 @@ class Website(Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
     libelle = Column(String(50), nullable=False, unique=True)
     link = Column(String(255), nullable=False, unique=True)
-    articles = relationship("Article", back_populates="website")
+    articles = relationship("Article", back_populates="website", cascade="all, delete, delete-orphan")
     
     def __json__(self):
         return {
